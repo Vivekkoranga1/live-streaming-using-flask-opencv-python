@@ -1,4 +1,7 @@
 ### it will work within same network if you want to do it in real server use ngrok  
+### ib this we are going to do facedetection in live stream video
+### you can refer my reppo where we have done that earlier
+#  https://github.com/Vivekkoranga1/face-detection-opencv-python
 
 from flask import Flask,render_template,Response #importing flask so we can create our web app with this Response for making 
 #custom respone for streaming 
@@ -6,6 +9,7 @@ import cv2 #importing cv2 so we can capture video and then convert i to jpeg the
 
 video = cv2.VideoCapture(0)
 
+face_detection = cv2.CascadeClassifier("faces.xml")
 
 
 #We are use generator Beacuse we are usign Response class because we are not using text base thing 
@@ -14,8 +18,14 @@ video = cv2.VideoCapture(0)
 def image_generator():
     while True:
         status,image = video.read()
-        st,encoded_iamge = cv2.imencode(".jpg",image)
-        bytes_encoded_iamge = encoded_iamge.tobytes()
+        
+        faces  = face_detection.detectMultiScale(image,1.1,4)  ### use grayscale image for face detection alwyas suggested but color also work
+        
+        for x,y,w,h in faces:
+            face_detected_image = cv2.rectangle(image,(x,y),(x+w,y+h),(255,255,255))
+        
+        st,encoded_image = cv2.imencode(".jpg",face_detected_image)
+        bytes_encoded_iamge = encoded_image.tobytes()
        
        #personally whole thing is easy but sending frame part inside yield is consuing for beginners
         yield (b'--frame\r\n' # boundary → tells browser "new frame starts"
