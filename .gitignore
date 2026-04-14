@@ -1,0 +1,100 @@
+# Byte-compiled / optimized / DLL files
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# C extensions
+
+*.so
+
+# Distribution / packaging
+
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+
+venv/
+env/
+ENV/
+.venv/
+
+# Flask stuff
+
+instance/
+.webassets-cache
+
+# Logs
+
+*.log
+
+# Unit test / coverage reports
+
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+
+.ipynb_checkpoints/
+
+# PyCharm
+
+.idea/
+
+# VS Code
+
+.vscode/
+
+# Mac
+
+.DS_Store
+
+# Windows
+
+Thumbs.db
+
+# Environment variables
+
+.env
+.env.*
+
+# SQLite database (Flask often uses this)
+
+*.sqlite3
+*.db
+
+# Temporary files
+
+*.tmp
+*.swp
+
+# MyPy
+
+.mypy_cache/
+
+# Pytest
+
+.pytest_cache/
