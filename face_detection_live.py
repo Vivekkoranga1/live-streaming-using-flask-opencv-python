@@ -23,7 +23,8 @@ def image_generator():
         
         for x,y,w,h in faces:
             face_detected_image = cv2.rectangle(image,(x,y),(x+w,y+h),(255,255,255))
-        
+
+        ##live streaming if freeze if it do not recognize face so intialize a image first like i done in face_detection_live_mobile_camera
         st,encoded_image = cv2.imencode(".jpg",face_detected_image)
         bytes_encoded_iamge = encoded_image.tobytes()
        
